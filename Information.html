@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+  <link rel="stylesheet" href="style.css">
+  <title>Booking Details Form</title>
+</head>
+<body>
+  <nav>
+    <div class="nav__bar">
+        <div class="nav__header">
+            <div class="logo nav__logo">
+                <div>H</div>
+                <span>HOTEL<br/>DULCE</span>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#room">Room</a></li>
+          <li><a href="#feature">Feature</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#news">News</a></li>
+      </ul>
+    </div>
+</nav>
+  <section class="header" id="home">
+        <div class="header__container"></div>
+  <div class="container-wrapper">
+   <div class="container_form">
+    <h1>Enter Booking Details</h1>
+
+    <form id="bookingForm">
+      
+      <div class="form-group">
+        <label for="guestName">Guest Name</label>
+        <input type="text" id="guestName" name="guestName" placeholder="Enter Guest Name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="arrivalDate">Arrival Date</label>
+        <input type="date" id="arrivalDate" name="arrivalDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="departureDate">Departure Date</label>
+        <input type="date" id="departureDate" name="departureDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="roomType">Room Type</label>
+        <select id="roomType" name="roomType" required>
+          <option value="" disabled selected>Select Room Type</option>
+          <option value="Deluxe Suite">Deluxe Suite</option>
+          <option value="Family Suite">Family Suite</option>
+          <option value="Luxury Penthouse">Luxury Penthouse</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="paymentMethod">Payment Method</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="" disabled selected>Select Payment Method</option>
+          <option value="Credit Card">Credit Card</option>
+          <option value="Debit Card">Debit Card</option>
+          <option value="PayPal">PayPal</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+        </select>
+      </div>
+
+      <button type="button" class="submit-button" onclick="showDetails()">Submit</button>
+    </form>
+  </div>
+   <!-- Modal -->
+   <div id="detailsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Booking Details</h2>
+      <p id="bookingDetails"></p>
+      <button class="print-button" onclick="printDetails()">Print</button>
+    </div>
+    <script src="script.js"></script>
+  </div>
+
+  <script>
+    function showDetails() {
+      // Get form values
+      const guestName = document.getElementById('guestName').value;
+      const email = document.getElementById('email').value;
+      const arrivalDate = document.getElementById('arrivalDate').value;
+      const departureDate = document.getElementById('departureDate').value;
+      const roomType = document.getElementById('roomType').value;
+      const paymentMethod = document.getElementById('paymentMethod').value;
+
+      // Create details message
+      const detailsMessage = `
+        <strong>Guest Name:</strong> ${guestName}<br>
+        <strong>Email:</strong> ${email}<br>
+        <strong>Arrival Date:</strong> ${arrivalDate}<br>
+        <strong>Departure Date:</strong> ${departureDate}<br>
+        <strong>Room Type:</strong> ${roomType}<br>
+        <strong>Payment Method:</strong> ${paymentMethod}
+      `;
+
+      // Display modal with details
+      document.getElementById('bookingDetails').innerHTML = detailsMessage;
+      document.getElementById('detailsModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('detailsModal').style.display = 'none';
+    }
+    
+
+  </script>
+</section>
+
+<section>
+  <footer class="footer">
+    <div class="section__container footer__container">
+     <div class="footer__col">
+       <div class="logo footer__logo">
+         <div>H</div>
+         <span>HOTEL<br/>DULCE</span>
+       </div>
+       <p class="section__description">
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ducimus, mollitia exercitationem iure explicabo amet? Vitae alias minima odio sint vel itaque. Earum laborum deserunt velit praesentium et id dolorem.
+       </p>
+       <ul class="footer__socials">
+         <li><a href="#"><i class="ri-youtube-fill"></i></a></li>
+       </ul>
+       <ul class="footer__socials">
+         <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+       </ul>
+       <ul class="footer__socials">
+         <li><a href="#"><i class="ri-facebook-fill"></i></a></li>
+       </ul>
+       <ul class="footer__socials">
+         <li><a href="#"><i class="ri-linkedin-fill"></i></a></li>
+       </ul>
+     </div>
+     <div class="footer__col">
+       <h4>Services</h4>
+       <div class="footer__links">
+         <li><a href="#">Online Booking</a></li>
+         <li><a href="#"></a>Room Customization</li>
+         <li><a href="#"></a>Virtual Tours</li>
+         <li><a href="#"></a>Special Offers</li>
+         <li><a href="#"></a>Concierge Services</li>
+         <li><a href="#"></a>Customer Support</li>
+       </div>
+     </div>
+     <div class="footer__col">
+      <h4>Contact Us</h4>
+      <div class="footer__links">
+       <li>
+         <span><i class="ri-phone-fill"></i></span>
+         <div>
+           <h5>Phone Number</h5>
+           <p>+63 9056543210</p>
+         </div>
+       </li>
+       <li>
+         <span><i class="ri-record-mail-line"></i></span>
+         <div>
+           <h5>Email</h5>
+           <p>info@hoteldulce.com</p>
+         </div>
+       </li>
+       <li>
+         <span><i class="ri-map-pin-2-line"></i></span>
+         <div>
+           <h5>Location</h5>
+           <p>First St. NYC</p>
+         </div>
+       </li>
+      </div> 
+     </div>
+    </div>
+    <div class="footer__bar">
+     Copyright © 2023 hotel dulce. All rights reserved.
+    </div> 
+   </footer>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="main.js"></script>
+</section>
+</div>
+</body>
+</html>
